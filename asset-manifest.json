@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.js": "/dashboard/static/js/main.803052df.chunk.js",
+    "main.js.map": "/dashboard/static/js/main.803052df.chunk.js.map",
+    "runtime-main.js": "/dashboard/static/js/runtime-main.dad3f0f4.js",
+    "runtime-main.js.map": "/dashboard/static/js/runtime-main.dad3f0f4.js.map",
+    "static/js/2.63098a61.chunk.js": "/dashboard/static/js/2.63098a61.chunk.js",
+    "static/js/2.63098a61.chunk.js.map": "/dashboard/static/js/2.63098a61.chunk.js.map",
+    "static/js/3.c588ee6a.chunk.js": "/dashboard/static/js/3.c588ee6a.chunk.js",
+    "static/js/3.c588ee6a.chunk.js.map": "/dashboard/static/js/3.c588ee6a.chunk.js.map",
+    "static/js/4.d769bb17.chunk.js": "/dashboard/static/js/4.d769bb17.chunk.js",
+    "static/js/4.d769bb17.chunk.js.map": "/dashboard/static/js/4.d769bb17.chunk.js.map",
+    "index.html": "/dashboard/index.html",
+    "precache-manifest.960d8b95316f7d5ecdb7345450148ffb.js": "/dashboard/precache-manifest.960d8b95316f7d5ecdb7345450148ffb.js",
+    "service-worker.js": "/dashboard/service-worker.js",
+    "static/js/2.63098a61.chunk.js.LICENSE.txt": "/dashboard/static/js/2.63098a61.chunk.js.LICENSE.txt",
+    "static/media/HarvestRadio.mp3": "/dashboard/static/media/HarvestRadio.b58cf5eb.mp3",
+    "static/media/eth_dai.svg": "/dashboard/static/media/eth_dai.57589652.svg",
+    "static/media/eth_usdc.svg": "/dashboard/static/media/eth_usdc.dfbb5e37.svg",
+    "static/media/eth_usdt.svg": "/dashboard/static/media/eth_usdt.1bcf41fd.svg",
+    "static/media/eth_wbtc.svg": "/dashboard/static/media/eth_wbtc.de8940ed.svg",
+    "static/media/gif_tractor.gif": "/dashboard/static/media/gif_tractor.50ba3f46.gif",
+    "static/media/sushi_wbtc.svg": "/dashboard/static/media/sushi_wbtc.03f69207.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dad3f0f4.js",
+    "static/js/2.63098a61.chunk.js",
+    "static/js/main.803052df.chunk.js"
+  ]
+}
