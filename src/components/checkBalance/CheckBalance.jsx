@@ -20,6 +20,7 @@ const CheckBalance = (props) => {
     setState,
     setConnection,
     isCheckingBalance,
+    setConnected,
     setCheckingBalance,
     setTokenAddedMessage,
   } = useContext(HarvestContext);
@@ -68,7 +69,7 @@ const CheckBalance = (props) => {
             summaries: summaries,
             usdValue: total,
           }));
-
+          setConnected(true)
           return summaries;
         })
         .catch((err) => {

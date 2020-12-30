@@ -3,6 +3,7 @@ import HarvestContext from "../../Context/HarvestContext";
 import styled, { ThemeProvider } from "styled-components";
 import harvest from "../../lib/index";
 import { darkTheme, lightTheme, fonts } from "../../styles/appStyles";
+import { Link } from 'react-router-dom'
 
 import FarmTableSkeleton from "./FarmTableSkeleton";
 
@@ -309,7 +310,9 @@ const FarmingTable = () => {
                 .map(utils.prettyPosition)
                 .map((summary, index) => (
                   <MainTableRow key={summary.address}>
-                    <div className="name">{summary.name}</div>
+                    <Link  className="name" to={`/card/${summary.name}`}>
+                      {summary.name}
+                    </Link>
                     <div className="active">{String(summary.isActive)}</div>
                     <div
                       className="earned-rewards"

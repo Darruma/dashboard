@@ -8,6 +8,7 @@ import harvest from "./lib/index.js";
 import Loadable from "react-loadable";
 import { darkTheme, lightTheme, fonts } from "./styles/appStyles.js";
 import axios from "axios";
+import {BrowserRouter as Router} from 'react-router-dom'
 
 // images
 import logo from "./assets/gif_tractor.gif";
@@ -338,6 +339,7 @@ const ErrorModal = Loadable({
 
 function App() {
   const [isConnecting, setIsConnecting] = useState(false);
+  const [isConnected,setConnected] = useState(false)
   const [isCheckingBalance, setCheckingBalance] = useState(false);
   const [tokenAddedMessage, setTokenAddedMessage] = useState("");
   const [state, setState] = useState({
@@ -502,12 +504,15 @@ function App() {
         tokenAddedMessage,
         setTokenAddedMessage,
         setIsConnecting,
+        isConnected,
+        setConnected,
         isCheckingBalance,
         setCheckingBalance,
         setConnection,
         disconnect,
       }}
     >
+      <Router>
       <ThemeProvider theme={state.theme === "dark" ? darkTheme : lightTheme}>
         <GlobalStyle />
         <Container>
@@ -580,6 +585,7 @@ function App() {
         </Container>
         <ErrorModal state={state} onClose={() => closeErrorModal()} />
       </ThemeProvider>
+      </Router>
     </HarvestContext.Provider>
   );
 }

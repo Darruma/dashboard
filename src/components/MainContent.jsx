@@ -12,7 +12,10 @@ import APY from "../components/apy/APY.jsx";
 import FarmPrice from "../components/farmPrice/FarmPrice";
 import AddTokens from "../components/addTokens/AddTokens";
 import Wallet from "../components/Wallet";
+import AssetCard from "../components/assetCard/AssetCard";
+
 import Loadable from "react-loadable";
+import {  Switch, Route} from "react-router-dom";
 
 const MainContent = ({ state, setState, openModal, isConnecting }) => {
   const {
@@ -34,74 +37,87 @@ const MainContent = ({ state, setState, openModal, isConnecting }) => {
   };
   return (
     <Main>
-      <div className="farm-info">
-        <Balance state={state} />
-        <APY apy={state.apy} display={state.display} theme={state.theme} />
-        <FarmPrice
-          price={state.farmPrice}
-          display={state.display}
-          theme={state.theme}
-        />
-        <Wallet
-          theme={state.theme}
-          address={state.address}
-          provider={state.provider}
-        />
+      <div>
+        
+        <Switch>
+          <Route exact path="/">
+          <div className="farm-info">
+            <Balance state={state} />
+            <APY apy={state.apy} display={state.display} theme={state.theme} />
+            <FarmPrice
+              price={state.farmPrice}
+              display={state.display}
+              theme={state.theme}
+            />
+            <Wallet
+              theme={state.theme}
+              address={state.address}
+              provider={state.provider}
+            />
+          </div>
+          <Row>
+            <Col>
+              <FarmingTable state={state} setState={setState} />
+            </Col>
+          </Row>
 
+          {isCheckingBalance ? (
+            ""
+          ) : (
+            <Row style={{ marginTop: "15px" }}>
+              {/* Git hub pages would not recognize the margin from the bootstrap grid */}
+              <Col lg="6">
+                <Harvest
+                  state={state}
+                  setState={setState}
+                  openModal={openModal}
+                />
+              </Col>
+              <Col lg="6">
+                <StakePanel state={state} openModal={openModal} />
+              </Col>
+            </Row>
+          )}
+          {isCheckingBalance ? (
+            ""
+          ) : (
+            <Row style={{ marginTop: "15px" }}>
+              {/* Git hub pages would not recognize the margin from the bootstrap grid */}
+              <Col lg="12">
+                <AddTokens state={state} />
+              </Col>
+            </Row>
+          )}
+
+          <Row style={{ marginTop: "15px" }}>
+            <Col lg="12">
+              <AssetTable state={state} />
+            </Col>
+          </Row>
+          {!isCheckingBalance ? (
+            <div className="button-div">
+              <button onClick={disconnect} className="clear button">
+                Disconnect
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
+          {isCheckingBalance ? (
+            <div className="button-div">
+              <button onClick={clear} className="clear button">
+                Clear
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
+          </Route>
+          <Route path="/card/:card">
+           <AssetCard theme={state.theme}></AssetCard> 
+          </Route>
+        </Switch>
       </div>
-      <Row>
-        <Col>
-          <FarmingTable state={state} setState={setState} />
-        </Col>
-      </Row>
-
-      {isCheckingBalance ? (
-        ""
-      ) : (
-        <Row style={{ marginTop: "15px" }}>
-          {/* Git hub pages would not recognize the margin from the bootstrap grid */}
-          <Col lg="6">
-            <Harvest state={state} setState={setState} openModal={openModal} />
-          </Col>
-          <Col lg="6">
-            <StakePanel state={state} openModal={openModal} />
-          </Col>
-        </Row>
-      )}
-      {isCheckingBalance ? (
-        ""
-      ) : (
-        <Row style={{ marginTop: "15px" }}>
-          {/* Git hub pages would not recognize the margin from the bootstrap grid */}
-          <Col lg="12">
-            <AddTokens state={state} />
-          </Col>
-        </Row>
-      )}
-
-      <Row style={{ marginTop: "15px" }}>
-        <Col lg="12">
-          <AssetTable state={state} />
-        </Col>
-      </Row>
-      {!isCheckingBalance ? (
-        <div className="button-div">
-          <button onClick={disconnect} className="clear button">
-            Disconnect
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
-      {isCheckingBalance ? (
-        <div className="button-div">
-          <button onClick={clear} className="clear button">
-            Clear
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
     </Main>
   );
 };

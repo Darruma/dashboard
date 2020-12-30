@@ -98,7 +98,7 @@ const WelcomeText = ({
   openModal,
   state,
 }) => {
-  const { setIsConnecting, setCheckingBalance } = useContext(HarvestContext);
+  const { setIsConnecting, setCheckingBalance,setConnected } = useContext(HarvestContext);
   const connectMetamask = () => {
     setIsConnecting(true);
     setCheckingBalance(false);
@@ -114,6 +114,7 @@ const WelcomeText = ({
           window.ethereum
             .enable()
             .then((res) => {
+              setConnected(true)
               setProvider(provider);
             })
             .catch((err) => {

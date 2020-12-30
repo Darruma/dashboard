@@ -23,6 +23,7 @@ const TabContainer = () => {
           </a>
         </PanelTab>
         <PanelTab className="wiki-tab">
+          
           <a
             href="https://farm.chainwiki.dev/en/home"
             target="_blank"
@@ -41,7 +42,7 @@ const TabContainer = () => {
             analytics
           </a>
         </PanelTab>
-
+        
         <PanelTab className="radio-tab" onClick={toggleRadio}>
           <p>radio</p>
         </PanelTab>
